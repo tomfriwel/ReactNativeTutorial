@@ -5,3 +5,5 @@
  */
 
 import DemoList from './components/pages/DemoList'
+
+export default DemoList
