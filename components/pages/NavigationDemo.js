@@ -27,7 +27,7 @@ class HomeScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Demo List</Text>
+                <Text>Navigation Demo</Text>
             </View>
         )
     }
