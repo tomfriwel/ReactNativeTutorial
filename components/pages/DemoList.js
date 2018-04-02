@@ -17,7 +17,7 @@ class HomeScreen extends Component {
         return {
             headerRight: (
                 <Button
-                    onPress={() => navigation.navigate('NavigationDemo')}
+                    onPress={() => navigation.navigate('MyModal')}
                     title="Info"
                     color="#2344A3"
                 />
@@ -30,6 +30,10 @@ class HomeScreen extends Component {
         return (
             <View style={styles.container}>
                 <Text>Demo List</Text>
+                <Button
+                    onPress={() => navigation.navigate('MyModal')}
+                    title='present'
+                ></Button>
             </View>
         )
     }
@@ -47,14 +51,11 @@ class LogoTitle extends React.Component {
     }
 }
 
-export default StackNavigator(
+const MainStack = StackNavigator(
     {
         Home: {
             screen: HomeScreen,
         },
-        NavigationDemo: {
-            screen: NavigationDemo
-        }
     },
     {
         initialRouteName: 'Home',
@@ -71,11 +72,23 @@ export default StackNavigator(
             // headerBackTitle: 'back haha',
             // headerBackImage: require('./assets/images/icon.png')
         },
+    }
+)
+
+export default StackNavigator(
+    {
+        Home: {
+            screen: MainStack,
+        },
+        MyModal: {
+            screen: NavigationDemo
+        }
+
     },
     {
-      mode: 'modal',
-      headerMode: 'none',
-    }
+        mode: 'modal',
+        headerMode: 'none',
+    },
 )
 
 const styles = StyleSheet.create({

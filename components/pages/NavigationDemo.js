@@ -7,12 +7,48 @@ import {
     StyleSheet
 } from 'react-native'
 import { StackNavigator } from 'react-navigation'
+import DismissableStackNavigator from '../../utils/DismissableStackNavigator'
 
-class HomeScreen extends Component {
+class NavigationDemoScreen extends Component {
+    static navigationOptions = ({ navigation, navigationOptions }) => {
+        const { params } = navigation.state;
+
+        console.log(navigation)
+
+        return {
+            headerRight: (
+                <Button
+                    onPress={() => navigation.goBack()}
+                    title="Dismiss"
+                    color="#2344A3"
+                />
+            ),
+        }
+    }
+
+    dismiss() {
+        const { state } = this.props.navigation
+        console.log(state)
+        this.props.navigation.goBack(state.key)
+    }
+
     render() {
+        const { state, goBack } = this.props.navigation;
+        const props = {
+            ...this.props.screenProps,
+            dismiss: () => goBack(state.key),
+        }
         return (
             <View style={styles.container}>
                 <Text>Navigation Demo</Text>
+                <Button
+                    onPress={() => {
+                        // this.props.navigation.goBack()
+                        // this.props.screenProps.dismiss()
+                        this.dismiss()
+                    }}
+                    title="Dismiss"
+                />
             </View>
         )
     }
@@ -29,32 +65,38 @@ class LogoTitle extends React.Component {
     }
 }
 
-export default StackNavigator(
+
+// export default NavigationDemoScreen
+
+const ModalNavigator = DismissableStackNavigator({
+    FirstModal: { screen: NavigationDemoScreen },
+    // SecondModal: { screen: SecondModalScreen }
+})
+
+export default ModalNavigator
+
+StackNavigator(
     {
         Home: {
-            screen: HomeScreen,
+            screen: NavigationDemoScreen,
         },
     },
-    {
-        initialRouteName: 'Home',
-        /* The header config from HomeScreen is now here */
-        navigationOptions: {
-            headerTitle: <LogoTitle />,
-            headerStyle: {
-                backgroundColor: '#FFD8D8',
-            },
-            headerTintColor: '#2344A3',
-            headerTitleStyle: {
-                fontWeight: 'bold',
-            },
-            // headerBackTitle: 'back haha',
-            // headerBackImage: require('./assets/images/icon.png')
-        },
-    },
-    {
-      mode: 'modal',
-      headerMode: 'none',
-    }
+    // {
+    //     initialRouteName: 'Home',
+    //     /* The header config from HomeScreen is now here */
+    //     navigationOptions: {
+    //         headerTitle: <LogoTitle />,
+    //         headerStyle: {
+    //             backgroundColor: '#FFD8D8',
+    //         },
+    //         headerTintColor: '#2344A3',
+    //         headerTitleStyle: {
+    //             fontWeight: 'bold',
+    //         },
+    //         // headerBackTitle: 'back haha',
+    //         // headerBackImage: require('./assets/images/icon.png')
+    //     },
+    // }
 )
 
 const Dimensions = require('Dimensions')
