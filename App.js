@@ -4,6 +4,11 @@
  * @flow
  */
 
+import React from 'react'
 import DemoList from './components/pages/DemoList'
 
-export default DemoList
+export default class App extends React.Component {
+  render() {
+    return <DemoList />
+  }
+}

@@ -8,14 +8,16 @@ import {
 } from 'react-native'
 import { StackNavigator } from 'react-navigation'
 
+import NavigationDemo from './NavigationDemo'
+
 class HomeScreen extends Component {
     static navigationOptions = ({ navigation }) => {
         const params = navigation.state.params || {}
 
         return {
-            headerLeft: (
+            headerRight: (
                 <Button
-                    onPress={() => navigation.navigate('MyModal')}
+                    onPress={() => navigation.navigate('NavigationDemo')}
                     title="Info"
                     color="#2344A3"
                 />
@@ -33,6 +35,7 @@ class HomeScreen extends Component {
     }
 }
 
+// Logo icon for headerTitle
 class LogoTitle extends React.Component {
     render() {
         return (
@@ -49,6 +52,9 @@ export default StackNavigator(
         Home: {
             screen: HomeScreen,
         },
+        NavigationDemo: {
+            screen: NavigationDemo
+        }
     },
     {
         initialRouteName: 'Home',
@@ -66,10 +72,11 @@ export default StackNavigator(
             // headerBackImage: require('./assets/images/icon.png')
         },
     },
+    {
+      mode: 'modal',
+      headerMode: 'none',
+    }
 )
-
-const Dimensions = require('Dimensions')
-const window = Dimensions.get('window')
 
 const styles = StyleSheet.create({
     container: {

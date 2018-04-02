@@ -9,21 +9,6 @@ import {
 import { StackNavigator } from 'react-navigation'
 
 class HomeScreen extends Component {
-    static navigationOptions = ({ navigation }) => {
-        const params = navigation.state.params || {}
-
-        return {
-            headerLeft: (
-                <Button
-                    onPress={() => navigation.navigate('MyModal')}
-                    title="Info"
-                    color="#2344A3"
-                />
-            ),
-            /* the rest of this config is unchanged */
-        }
-    }
-
     render() {
         return (
             <View style={styles.container}>
@@ -66,6 +51,10 @@ export default StackNavigator(
             // headerBackImage: require('./assets/images/icon.png')
         },
     },
+    {
+      mode: 'modal',
+      headerMode: 'none',
+    }
 )
 
 const Dimensions = require('Dimensions')
