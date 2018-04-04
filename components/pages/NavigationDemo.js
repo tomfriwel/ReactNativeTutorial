@@ -28,8 +28,13 @@ class NavigationDemoScreen extends Component {
 
     dismiss() {
         const { state } = this.props.navigation
-        console.log(state)
+        console.log(state.key)
+        console.log(this.props.screenProps.key)
         this.props.navigation.goBack(state.key)
+    }
+
+    push() {
+
     }
 
     render() {
@@ -44,10 +49,18 @@ class NavigationDemoScreen extends Component {
                 <Button
                     onPress={() => {
                         // this.props.navigation.goBack()
-                        // this.props.screenProps.dismiss()
-                        this.dismiss()
+                        this.props.screenProps.dismiss()
+                        // this.dismiss()
                     }}
                     title="Dismiss"
+                />
+                <Button
+                    onPress={() => {
+                        this.props.navigation.navigate('Home', {
+                            key:this.props.navigation.state.key
+                        })
+                    }}
+                    title="next"
                 />
             </View>
         )
@@ -73,30 +86,14 @@ const ModalNavigator = DismissableStackNavigator({
     // SecondModal: { screen: SecondModalScreen }
 })
 
-export default ModalNavigator
+// ModalNavigator
 
-StackNavigator(
+export default StackNavigator(
     {
         Home: {
             screen: NavigationDemoScreen,
         },
     },
-    // {
-    //     initialRouteName: 'Home',
-    //     /* The header config from HomeScreen is now here */
-    //     navigationOptions: {
-    //         headerTitle: <LogoTitle />,
-    //         headerStyle: {
-    //             backgroundColor: '#FFD8D8',
-    //         },
-    //         headerTintColor: '#2344A3',
-    //         headerTitleStyle: {
-    //             fontWeight: 'bold',
-    //         },
-    //         // headerBackTitle: 'back haha',
-    //         // headerBackImage: require('./assets/images/icon.png')
-    //     },
-    // }
 )
 
 const Dimensions = require('Dimensions')
