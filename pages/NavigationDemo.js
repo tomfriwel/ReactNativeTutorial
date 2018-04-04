@@ -7,7 +7,7 @@ import {
     StyleSheet
 } from 'react-native'
 import { StackNavigator } from 'react-navigation'
-import DismissableStackNavigator from '../../utils/DismissableStackNavigator'
+import DismissableStackNavigator from '../utils/DismissableStackNavigator'
 
 class NavigationDemoScreen extends Component {
     static navigationOptions = ({ navigation, navigationOptions }) => {
@@ -71,33 +71,22 @@ class LogoTitle extends React.Component {
     render() {
         return (
             <Image
-                source={require('../../assets/images/sample.jpeg')}
+                source={require('../assets/images/sample.jpeg')}
                 style={{ width: 30, height: 30 }}
             />
         );
     }
 }
 
-
-// export default NavigationDemoScreen
-
-const ModalNavigator = DismissableStackNavigator({
-    FirstModal: { screen: NavigationDemoScreen },
-    // SecondModal: { screen: SecondModalScreen }
-})
-
-// ModalNavigator
-
-export default StackNavigator(
+const ModalNavigator = DismissableStackNavigator(
     {
         Home: {
             screen: NavigationDemoScreen,
         },
-    },
+    }
 )
 
-const Dimensions = require('Dimensions')
-const window = Dimensions.get('window')
+export default ModalNavigator
 
 const styles = StyleSheet.create({
     container: {

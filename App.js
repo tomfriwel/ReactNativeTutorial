@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import DemoList from './components/pages/DemoList'
+import DemoList from './pages/DemoList'
 
 export default class App extends React.Component {
   render() {

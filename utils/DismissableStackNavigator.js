@@ -1,3 +1,4 @@
+// https://devdude.me/blog/rnDismissableModalStacks
 
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';

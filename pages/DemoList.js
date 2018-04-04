@@ -31,7 +31,7 @@ class HomeScreen extends Component {
             <View style={styles.container}>
                 <Text>Demo List</Text>
                 <Button
-                    onPress={() => navigation.navigate('MyModal')}
+                    onPress={() => this.props.navigation.navigate('MyModal')}
                     title='present'
                 ></Button>
             </View>
@@ -44,7 +44,7 @@ class LogoTitle extends React.Component {
     render() {
         return (
             <Image
-                source={require('../../assets/images/sample.jpeg')}
+                source={require('../assets/images/sample.jpeg')}
                 style={{ width: 30, height: 30 }}
             />
         );
