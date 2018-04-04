@@ -13,24 +13,27 @@ class NavigationDemoScreen extends Component {
     static navigationOptions = ({ navigation, navigationOptions }) => {
         const { params } = navigation.state;
 
-        console.log(navigation)
+        console.log('NavigationDemoScreen navigation:'+navigation.state.key)
+        // console.log(navigation)
 
         return {
             headerRight: (
                 <Button
-                    onPress={() => navigation.goBack()}
+                    onPress={() => {
+                        console.log(navigation)
+                        console.log(params.currentKey)
+                        // navigation.goBack(params.currentKey)
+                        params.currentDismiss()
+                    }}
                     title="Dismiss"
                     color="#2344A3"
                 />
             ),
         }
     }
-
-    dismiss() {
-        const { state } = this.props.navigation
-        console.log(state.key)
-        console.log(this.props.screenProps.key)
-        this.props.navigation.goBack(state.key)
+    componentWillMount() {
+        console.log(this.props.navigation.state.key)
+        this.props.navigation.setParams({ currentDismiss: this.props.screenProps.dismiss});
     }
 
     push() {
@@ -49,6 +52,7 @@ class NavigationDemoScreen extends Component {
                 <Button
                     onPress={() => {
                         // this.props.navigation.goBack()
+                        console.log('dismiss button:'+this.props.navigation.state.key)
                         this.props.screenProps.dismiss()
                         // this.dismiss()
                     }}

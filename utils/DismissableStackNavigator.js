@@ -16,6 +16,12 @@ export default function DismissableStackNavigator(routes, options) {
                 dismiss: () => goBack(state.key),
                 key:state.key
             };
+            
+            this.props.navigation['dismiss'] = () => goBack(state.key)
+
+            // console.log('DismissableStackNav navigation:'+this.props.navigation.state.key)
+            // console.log(this.props.navigation)
+
             return (
                 <StackNav
                     screenProps={props}

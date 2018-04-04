@@ -9,19 +9,20 @@ import {
 import { StackNavigator } from 'react-navigation'
 
 import NavigationDemo from './NavigationDemo'
+import NetworkDemo from './NetworkDemo'
 
 class HomeScreen extends Component {
     static navigationOptions = ({ navigation }) => {
         const params = navigation.state.params || {}
 
         return {
-            headerRight: (
-                <Button
-                    onPress={() => navigation.navigate('MyModal')}
-                    title="Info"
-                    color="#2344A3"
-                />
-            ),
+            // headerRight: (
+            //     <Button
+            //         onPress={() => navigation.navigate('MyModal')}
+            //         title="Info"
+            //         color="#2344A3"
+            //     />
+            // ),
             /* the rest of this config is unchanged */
         }
     }
@@ -31,8 +32,16 @@ class HomeScreen extends Component {
             <View style={styles.container}>
                 <Text>Demo List</Text>
                 <Button
-                    onPress={() => this.props.navigation.navigate('MyModal')}
-                    title='present'
+                    onPress={() => {
+                        // console.log('main button navigation:'+this.props.navigation.state.key)
+                        this.props.navigation.navigate('NavigationDemo')
+                    }}
+                    title='NavigationDemo'
+                ></Button>
+
+                <Button
+                    onPress={() => this.props.navigation.navigate('NetworkDemo')}
+                    title='NetworkDemo'
                 ></Button>
             </View>
         )
@@ -80,8 +89,11 @@ export default StackNavigator(
         Home: {
             screen: MainStack,
         },
-        MyModal: {
+        NavigationDemo: {
             screen: NavigationDemo
+        },
+        NetworkDemo: {
+            screen: NetworkDemo
         }
 
     },
