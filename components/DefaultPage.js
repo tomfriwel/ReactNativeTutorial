@@ -9,6 +9,7 @@ import {
 import { StackNavigator } from 'react-navigation'
 import DismissableStackNavigator from '../utils/DismissableStackNavigator'
 
+
 class Page extends Component {
     static navigationOptions = ({ navigation, navigationOptions }) => {
         const { params } = navigation.state;
@@ -28,9 +29,13 @@ class Page extends Component {
 
     constructor(props) {
         super(props);
+        console.log('props:')
+        console.log(props)
     }
 
     componentWillMount() {
+        console.log('componentWillMount')
+        console.log(this.props.navigation.state.key)
         this.props.navigation.setParams({ currentDismiss: this.props.screenProps.dismiss});
     }
 
