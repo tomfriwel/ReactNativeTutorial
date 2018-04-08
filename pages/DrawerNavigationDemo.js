@@ -1,3 +1,5 @@
+// https://reactnavigation.org/docs/drawer-based-navigation.html
+
 import React from 'react';
 import { Text, View, Image, Button, StyleSheet } from 'react-native';
 import { DrawerNavigator } from 'react-navigation';
