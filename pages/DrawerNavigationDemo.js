@@ -1,7 +1,7 @@
 // https://reactnavigation.org/docs/drawer-based-navigation.html
 
 import React from 'react';
-import { Text, View, Image, Button, StyleSheet } from 'react-native';
+import { Text, View, Image, Button, StyleSheet, StatusBar } from 'react-native';
 import { DrawerNavigator } from 'react-navigation';
 
 class MyHomeScreen extends React.Component {
@@ -19,6 +19,10 @@ class MyHomeScreen extends React.Component {
     render() {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <StatusBar
+                    barStyle="light-content"
+                    backgroundColor="#6a51ae"
+                />
                 <Button
                     onPress={() => this.props.navigation.navigate('Notifications')}
                     title="Go to notifications"
@@ -43,6 +47,10 @@ class MyNotificationsScreen extends React.Component {
     render() {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <StatusBar
+                    barStyle="dark-content"
+                    backgroundColor="red"
+                />
                 <Button
                     onPress={() => this.props.navigation.goBack()}
                     title="Go back home"
