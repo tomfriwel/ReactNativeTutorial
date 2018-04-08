@@ -1,10 +1,16 @@
 // https://devdude.me/blog/rnDismissableModalStacks
 
 import React, { Component } from 'react';
-import { StackNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator } from 'react-navigation';
 
-export default function DismissableStackNavigator(routes, options) {
-    const StackNav = StackNavigator(routes, options);
+export default function DismissableStackNavigator(routes, options, type='stack') {
+    let StackNav;
+    if(type=='stack') {
+        StackNav = StackNavigator(routes, options);
+    }
+    else if(type=='tab') {
+        StackNav = TabNavigator(routes, options);
+    }
 
     return class DismissableStackNav extends Component {
         static router = StackNav.router;

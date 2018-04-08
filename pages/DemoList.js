@@ -10,6 +10,8 @@ import { StackNavigator } from 'react-navigation'
 
 import NavigationDemo from './NavigationDemo'
 import NetworkDemo from './NetworkDemo'
+import TabDemo from './TabDemo'
+import DrawerNavigationDemo from './DrawerNavigationDemo'
 
 class HomeScreen extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -42,6 +44,16 @@ class HomeScreen extends Component {
                 <Button
                     onPress={() => this.props.navigation.navigate('NetworkDemo')}
                     title='NetworkDemo'
+                ></Button>
+
+                <Button
+                    onPress={() => this.props.navigation.navigate('TabDemo')}
+                    title='TabDemo'
+                ></Button>
+
+                <Button
+                    onPress={() => this.props.navigation.navigate('DrawerNavigationDemo')}
+                    title='DrawerNavigationDemo'
                 ></Button>
             </View>
         )
@@ -94,7 +106,13 @@ export default StackNavigator(
         },
         NetworkDemo: {
             screen: NetworkDemo
-        }
+        },
+        TabDemo: {
+            screen: TabDemo
+        },
+        DrawerNavigationDemo: {
+            screen: DrawerNavigationDemo
+        },
 
     },
     {
