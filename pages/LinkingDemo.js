@@ -1,3 +1,6 @@
+//https://reactnavigation.org/docs/deep-linking.html
+//https://docs.expo.io/versions/latest/guides/linking.html
+
 import React, { Component } from 'react';
 import { Linking, View, Button, Text, StyleSheet } from 'react-native';
 
