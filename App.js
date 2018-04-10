@@ -6,9 +6,14 @@
 
 import React from 'react'
 import DemoList from './pages/DemoList'
+import NavigationService from './utils/NavigationService'
 
 export default class App extends React.Component {
   render() {
-    return <DemoList />
+    return <DemoList
+      ref={navigatorRef => {
+        NavigationService.setTopLevelNavigator(navigatorRef);
+      }}
+    />
   }
 }

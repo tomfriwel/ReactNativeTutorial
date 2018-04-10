@@ -18,9 +18,20 @@ function navigate(routeName, params) {
     );
 }
 
+function back(routeName, params) {
+    _navigator.dispatch(
+        NavigationActions.back({
+            type: NavigationActions.BACK,
+            routeName,
+            params,
+        })
+    );
+}
+
 // add other navigation functions that you need and export them
 
 export default {
     navigate,
     setTopLevelNavigator,
+    back
 };

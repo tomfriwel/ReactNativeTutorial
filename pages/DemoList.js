@@ -8,7 +8,10 @@ import {
 } from 'react-native'
 import { StackNavigator } from 'react-navigation'
 
+import NavigationService from '../utils/NavigationService'
+
 import NavigationDemo from './NavigationDemo'
+import NavigationServiceDemo from './NavigationServiceDemo'
 import NetworkDemo from './NetworkDemo'
 import TabDemo from './TabDemo'
 import DrawerNavigationDemo from './DrawerNavigationDemo'
@@ -35,6 +38,12 @@ class HomeScreen extends Component {
         return (
             <View style={styles.container}>
                 <Text>Demo List</Text>
+                <Button
+                    onPress={() => {
+                        NavigationService.navigate('NavigationServiceDemo')
+                    }}
+                    title='NavigationService -> NavigationServiceDemo'
+                ></Button>
                 <Button
                     onPress={() => {
                         // console.log('main button navigation:'+this.props.navigation.state.key)
@@ -112,6 +121,9 @@ export default StackNavigator(
     {
         Home: {
             screen: MainStack,
+        },
+        NavigationServiceDemo: {
+            screen: NavigationServiceDemo
         },
         NavigationDemo: {
             screen: NavigationDemo
