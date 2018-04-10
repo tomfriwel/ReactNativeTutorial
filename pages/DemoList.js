@@ -17,6 +17,7 @@ import TabDemo from './TabDemo'
 import DrawerNavigationDemo from './DrawerNavigationDemo'
 import AuthenticationFlowsDemo from './AuthenticationFlowsDemo'
 import WithNavigationDemo from './WithNavigationDemo'
+import LinkingDemo from './LinkingDemo'
 
 class HomeScreen extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -76,6 +77,11 @@ class HomeScreen extends Component {
                     onPress={() => this.props.navigation.navigate('WithNavigationDemo')}
                     title='WithNavigationDemo'
                 ></Button>
+
+                <Button
+                    onPress={() => this.props.navigation.navigate('LinkingDemo')}
+                    title='LinkingDemo'
+                ></Button>
             </View>
         )
     }
@@ -123,7 +129,8 @@ export default StackNavigator(
             screen: MainStack,
         },
         NavigationServiceDemo: {
-            screen: NavigationServiceDemo
+            screen: NavigationServiceDemo,
+            path: 'service',
         },
         NavigationDemo: {
             screen: NavigationDemo
@@ -141,7 +148,11 @@ export default StackNavigator(
             screen: AuthenticationFlowsDemo
         },
         WithNavigationDemo: {
-            screen: WithNavigationDemo
+            screen: WithNavigationDemo,
+        },
+        LinkingDemo: {
+            screen: LinkingDemo,
+            path: 'link/:name',
         }
 
     },
