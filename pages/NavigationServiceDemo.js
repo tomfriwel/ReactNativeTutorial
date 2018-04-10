@@ -7,7 +7,7 @@ import {
     StyleSheet
 } from 'react-native'
 import { StackNavigator } from 'react-navigation'
-import DismissableStackNavigator from '../utils/DismissableStackNavigator'
+// import DismissableStackNavigator from '../utils/DismissableStackNavigator'
 
 import NavigationService from '../utils/NavigationService'
 
@@ -22,24 +22,13 @@ class NavigationDemoScreen extends Component {
             headerRight: (
                 <Button
                     onPress={() => {
-                        console.log(navigation)
-                        console.log(params.currentKey)
-                        // navigation.goBack(params.currentKey)
-                        params.currentDismiss()
+                        NavigationService.popToTop()
                     }}
-                    title="Dismiss"
+                    title="popToTop"
                     color="#2344A3"
                 />
             ),
         }
-    }
-    componentWillMount() {
-        console.log(this.props.navigation.state.key)
-        this.props.navigation.setParams({ currentDismiss: this.props.screenProps.dismiss});
-    }
-
-    push() {
-
     }
 
     render() {
@@ -83,7 +72,15 @@ class LogoTitle extends React.Component {
     }
 }
 
-const ModalNavigator = DismissableStackNavigator(
+// const ModalNavigator = DismissableStackNavigator(
+//     {
+//         Home: {
+//             screen: NavigationDemoScreen,
+//         },
+//     }
+// )
+
+const ModalNavigator = StackNavigator(
     {
         Home: {
             screen: NavigationDemoScreen,

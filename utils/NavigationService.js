@@ -18,12 +18,18 @@ function navigate(routeName, params) {
     );
 }
 
-function back(routeName, params) {
+function back() {
     _navigator.dispatch(
         NavigationActions.back({
-            type: NavigationActions.BACK,
-            routeName,
-            params,
+            type: NavigationActions.BACK
+        })
+    );
+}
+
+function popToTop() {
+    _navigator.dispatch(
+        NavigationActions.popToTop({
+            type: NavigationActions.POP_TO_TOP
         })
     );
 }
@@ -33,5 +39,6 @@ function back(routeName, params) {
 export default {
     navigate,
     setTopLevelNavigator,
-    back
+    back,
+    popToTop
 };
