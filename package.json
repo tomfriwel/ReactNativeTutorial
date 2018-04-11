@@ -9,6 +9,7 @@
   "dependencies": {
     "react": "16.3.0",
     "react-native": "0.54.4",
+    "react-native-ble-manager": "^6.2.9",
     "react-navigation": "^1.5.9"
   },
   "devDependencies": {

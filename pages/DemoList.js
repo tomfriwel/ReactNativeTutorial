@@ -18,6 +18,7 @@ import DrawerNavigationDemo from './DrawerNavigationDemo'
 import AuthenticationFlowsDemo from './AuthenticationFlowsDemo'
 import WithNavigationDemo from './WithNavigationDemo'
 import LinkingDemo from './LinkingDemo'
+import BluetoothDemo from './BluetoothDemo'
 
 class HomeScreen extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -81,6 +82,11 @@ class HomeScreen extends Component {
                 <Button
                     onPress={() => this.props.navigation.navigate('LinkingDemo')}
                     title='LinkingDemo'
+                ></Button>
+
+                <Button
+                    onPress={() => this.props.navigation.navigate('BluetoothDemo')}
+                    title='BluetoothDemo'
                 ></Button>
             </View>
         )
@@ -153,8 +159,10 @@ const DemoList = StackNavigator(
         LinkingDemo: {
             screen: LinkingDemo,
             path: 'link/:name',
+        },
+        BluetoothDemo: {
+            screen: BluetoothDemo
         }
-
     },
     {
         mode: 'modal',
