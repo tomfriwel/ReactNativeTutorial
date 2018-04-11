@@ -9,16 +9,12 @@ class HomeScreen extends React.Component {
                 <Text>Home!</Text>
                 <Button
                     onPress={() => {
-                        console.log(1)
-                        console.log(BleManager.start)
                         BleManager.start({ showAlert: false })
-                            .then(() => {
+                            .then((res) => {
                                 // Success code
                                 console.log('Module initialized');
-                            }).catch((res)=>{
-                                console.log(2)
-                                console.log(BleManager.start)
                                 console.log(res)
+                            }).catch((res)=>{
                             });
                     }}
                     title="start"
@@ -27,9 +23,10 @@ class HomeScreen extends React.Component {
                 <Button
                     onPress={() => {
                         BleManager.scan([], 5, true)
-                            .then(() => {
+                            .then((res) => {
                                 // Success code
                                 console.log('Scan started');
+                                console.log(res)
                             });
                     }}
                     title="scan"
@@ -44,6 +41,18 @@ class HomeScreen extends React.Component {
                             });
                     }}
                     title="stop scan"
+                ></Button>
+
+                <Button
+                    onPress={() => {
+                        BleManager.getDiscoveredPeripherals()
+                            .then((res) => {
+                                // Success code
+                                console.log('getDiscoveredPeripherals');
+                                console.log(res)
+                            });
+                    }}
+                    title="getDiscoveredPeripherals"
                 ></Button>
             </View>
         );
