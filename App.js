@@ -3,16 +3,17 @@
  * https://github.com/facebook/react-native
  * @flow
  */
-// import 'expo'
+
 import React from 'react'
 import { Platform } from 'react-native'
 import DemoList from './pages/DemoList'
 import NavigationService from './utils/NavigationService'
+// import Expo from 'expo';
 
 // on Android, the URI prefix typically contains a host in addition to scheme
 const prefix = Platform.OS == 'android' ? 'totest://totest/' : 'totest://';
 
-export default class App extends React.Component {
+class App extends React.Component {
     render() {
         return <DemoList
             uriPrefix={prefix}
@@ -28,3 +29,7 @@ export default class App extends React.Component {
         />
     }
 }
+
+// Expo.registerRootComponent(App);
+
+export default App

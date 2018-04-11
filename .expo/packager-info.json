@@ -1,8 +1,8 @@
 {
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 41240,
-  "expoServerNgrokUrl": "https://qj-vm3.tomfriwel.reactnativetutorial.exp.direct",
-  "packagerNgrokUrl": "https://packager.qj-vm3.tomfriwel.reactnativetutorial.exp.direct",
-  "ngrokPid": 41262
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }

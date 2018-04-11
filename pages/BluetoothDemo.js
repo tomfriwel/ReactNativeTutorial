@@ -9,10 +9,16 @@ class HomeScreen extends React.Component {
                 <Text>Home!</Text>
                 <Button
                     onPress={() => {
+                        console.log(1)
+                        console.log(BleManager.start)
                         BleManager.start({ showAlert: false })
                             .then(() => {
                                 // Success code
                                 console.log('Module initialized');
+                            }).catch((res)=>{
+                                console.log(2)
+                                console.log(BleManager.start)
+                                console.log(res)
                             });
                     }}
                     title="start"
