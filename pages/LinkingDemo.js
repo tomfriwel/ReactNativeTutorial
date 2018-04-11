@@ -11,6 +11,13 @@ export default class extends Component {
         console.log(this)
     }
     render() {
+        let info
+        if (this.props.navigation.state.params && this.props.navigation.state.params.name) {
+            info = 'name is ' + this.props.navigation.state.params.name
+        }
+        else {
+            info = 'no name'
+        }
         return (
             <View style={styles.container}>
                 <Button
@@ -19,7 +26,7 @@ export default class extends Component {
                     }}
                     title="bing"
                 ></Button>
-                <Text>{'name is ' + this.props.navigation.state.params.name}</Text>
+                <Text>{info}</Text>
             </View>
         )
     }

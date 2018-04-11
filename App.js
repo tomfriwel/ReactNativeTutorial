@@ -13,12 +13,18 @@ import NavigationService from './utils/NavigationService'
 const prefix = Platform.OS == 'android' ? 'totest://totest/' : 'totest://';
 
 export default class App extends React.Component {
-  render() {
-    return <DemoList
-      uriPrefix={prefix}
-      ref={navigatorRef => {
-        NavigationService.setTopLevelNavigator(navigatorRef);
-      }}
-    />
-  }
+    render() {
+        return <DemoList
+            uriPrefix={prefix}
+            ref={navigatorRef => {
+                NavigationService.setTopLevelNavigator(navigatorRef);
+            }}
+            onNavigationStateChange={(prevState, newState, action)=>{
+                // console.log(new Date())
+                // console.log(prevState)
+                // console.log(newState)
+                // console.log(action)
+            }}
+        />
+    }
 }

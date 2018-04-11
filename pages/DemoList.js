@@ -6,7 +6,7 @@ import {
     Button,
     StyleSheet
 } from 'react-native'
-import { StackNavigator } from 'react-navigation'
+import { StackNavigator, NavigationActions } from 'react-navigation'
 
 import NavigationService from '../utils/NavigationService'
 
@@ -123,7 +123,7 @@ const MainStack = StackNavigator(
     }
 )
 
-export default StackNavigator(
+const DemoList = StackNavigator(
     {
         Home: {
             screen: MainStack,
@@ -161,6 +161,47 @@ export default StackNavigator(
         headerMode: 'none',
     },
 )
+
+// handle url
+const previousGetActionForPathAndParams = DemoList.router.getActionForPathAndParams;
+
+Object.assign(DemoList.router, {
+    getActionForPathAndParams(path, params) {
+        console.log(path)
+        console.log(params)
+        // if(path) {
+        //     console.log('handle custom url')
+        //     // returns a profile navigate action for /my/custom/path?magic=yes
+        //     return NavigationActions.navigate({
+        //         routeName: path,
+        //         // action: NavigationActions.navigate({
+        //         //     // This child action will get passed to the child router
+        //         //     // ProfileScreen.router.getStateForAction to get the child
+        //         //     // navigation state.
+        //         //     routeName: 'Friends',
+        //         // }),
+        //     });
+        // }
+        // if (
+        //     path === 'say' &&
+        //     params.magic === 'yes'
+        // ) {
+        //     // returns a profile navigate action for /my/custom/path?magic=yes
+        //     return NavigationActions.navigate({
+        //         routeName: 'Profile',
+        //         action: NavigationActions.navigate({
+        //             // This child action will get passed to the child router
+        //             // ProfileScreen.router.getStateForAction to get the child
+        //             // navigation state.
+        //             routeName: 'Friends',
+        //         }),
+        //     });
+        // }
+        return previousGetActionForPathAndParams(path, params);
+    },
+});
+
+export default DemoList
 
 const styles = StyleSheet.create({
     container: {
