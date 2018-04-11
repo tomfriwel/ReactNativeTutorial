@@ -4,17 +4,22 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "teststart": "react-native-scripts start",
     "test": "react-native run-ios --simulator='iPhone (5th generation)'"
   },
   "dependencies": {
+    "exponent": "^14.0.0",
     "react": "16.3.0",
     "react-native": "0.54.4",
     "react-native-ble-manager": "^6.2.9",
+    "react-native-scripts": "^1.13.1",
     "react-navigation": "^1.5.9"
   },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "devDependencies": {
     "babel-jest": "22.4.3",
     "babel-preset-react-native": "4.0.0",
+    "expo": "^26.0.0",
     "jest": "22.4.3",
     "react-test-renderer": "16.3.0"
   },

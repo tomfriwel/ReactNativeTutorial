@@ -3,7 +3,7 @@
  * https://github.com/facebook/react-native
  * @flow
  */
-
+// import 'expo'
 import React from 'react'
 import { Platform } from 'react-native'
 import DemoList from './pages/DemoList'
