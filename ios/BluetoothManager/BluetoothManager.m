@@ -7,9 +7,15 @@
 //
 
 #import "BluetoothManager.h"
+#import <React/RCTLog.h>
 
 @implementation BluetoothManager
 
 RCT_EXPORT_MODULE();
+
+RCT_EXPORT_METHOD(log:(NSString *)name number:(nonnull NSNumber *)number)
+{
+  RCTLogInfo(@"RCTLogInfo:My name is %@, number:%@", name, number);
+}
 
 @end

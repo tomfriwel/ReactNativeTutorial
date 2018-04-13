@@ -19,6 +19,7 @@ import AuthenticationFlowsDemo from './AuthenticationFlowsDemo'
 import WithNavigationDemo from './WithNavigationDemo'
 import LinkingDemo from './LinkingDemo'
 import BluetoothDemo from './BluetoothDemo'
+import CustomNativeModuleDemo from './CustomNativeModuleDemo'
 
 class HomeScreen extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -87,6 +88,11 @@ class HomeScreen extends Component {
                 <Button
                     onPress={() => this.props.navigation.navigate('BluetoothDemo')}
                     title='BluetoothDemo'
+                ></Button>
+
+                <Button
+                    onPress={() => this.props.navigation.navigate('CustomNativeModuleDemo')}
+                    title='CustomNativeModuleDemo'
                 ></Button>
             </View>
         )
@@ -162,6 +168,9 @@ const DemoList = StackNavigator(
         },
         BluetoothDemo: {
             screen: BluetoothDemo
+        },
+        CustomNativeModuleDemo: {
+            screen: CustomNativeModuleDemo
         }
     },
     {
