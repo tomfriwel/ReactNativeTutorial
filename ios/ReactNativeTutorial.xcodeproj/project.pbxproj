@@ -38,6 +38,7 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		CFB24DA9207E09EE0058463D /* libBleManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB24DA8207E08940058463D /* libBleManager.a */; };
+		CFB24DB22080400C0058463D /* BluetoothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB24DB12080400C0058463D /* BluetoothManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -352,6 +353,8 @@
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		CFB24D7C207E083F0058463D /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		CFB24DA3207E08940058463D /* BleManager.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BleManager.xcodeproj; path = "../node_modules/react-native-ble-manager/ios/BleManager.xcodeproj"; sourceTree = "<group>"; };
+		CFB24DB02080400C0058463D /* BluetoothManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BluetoothManager.h; sourceTree = "<group>"; };
+		CFB24DB12080400C0058463D /* BluetoothManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BluetoothManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -492,6 +495,7 @@
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
+				CFB24DAF20803FDA0058463D /* BluetoothManager */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -621,6 +625,15 @@
 				CFB24DA8207E08940058463D /* libBleManager.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CFB24DAF20803FDA0058463D /* BluetoothManager */ = {
+			isa = PBXGroup;
+			children = (
+				CFB24DB02080400C0058463D /* BluetoothManager.h */,
+				CFB24DB12080400C0058463D /* BluetoothManager.m */,
+			);
+			path = BluetoothManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1148,6 +1161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				CFB24DB22080400C0058463D /* BluetoothManager.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,6 +1,10 @@
 import React from 'react';
 import { Text, View, Button } from 'react-native';
 import BleManager from 'react-native-ble-manager'
+const Buffer = require('buffer')
+
+const SERVICE_UUID = 'CDD1'
+const CHARACTERISTIC_UUID = 'CDD2'
 
 class HomeScreen extends React.Component {
     render() {
@@ -13,8 +17,7 @@ class HomeScreen extends React.Component {
                             .then((res) => {
                                 // Success code
                                 console.log('Module initialized');
-                                console.log(res)
-                            }).catch((res)=>{
+                            }).catch((res) => {
                             });
                     }}
                     title="start"
@@ -22,11 +25,10 @@ class HomeScreen extends React.Component {
 
                 <Button
                     onPress={() => {
-                        BleManager.scan([], 5, true)
+                        BleManager.scan([SERVICE_UUID], 5, true)
                             .then((res) => {
                                 // Success code
                                 console.log('Scan started');
-                                console.log(res)
                             });
                     }}
                     title="scan"
@@ -50,6 +52,48 @@ class HomeScreen extends React.Component {
                                 // Success code
                                 console.log('getDiscoveredPeripherals');
                                 console.log(res)
+                                let names = []
+                                if (res.length == 1) {
+                                    let peripheralId = res[0].id
+                                    BleManager.connect(peripheralId)
+                                        .then((res) => {
+                                            console.log('cennected')
+                                            BleManager.retrieveServices(peripheralId)
+                                                .then(res => {
+                                                    console.log('retrieveServices:')
+                                                    console.log(res)
+
+                                                    BleManager.read(peripheralId, SERVICE_UUID, CHARACTERISTIC_UUID)
+                                                        .then((readData) => {
+                                                            // Success code
+                                                            console.log('Read: ')
+                                                            console.log(readData)
+                                                            let str = ''
+                                                            
+                                                            readData.forEach(element => {
+                                                                str += String.fromCharCode(element)
+                                                            });
+                                                            console.log(str)
+
+                                                            // const buffer = Buffer.Buffer.from(readData);    //https://github.com/feross/buffer#convert-arraybuffer-to-buffer
+                                                            // const sensorData = buffer.readUInt8(1, true);
+                                                            // console.log('sensorData:'+sensorData)
+                                                        })
+                                                        .catch((error) => {
+                                                            // Failure code
+                                                            console.log(error);
+                                                        });
+                                                })
+                                            // BleManager.read(peripheralId, SERVICE_UUID, CHARACTERISTIC_UUID)
+                                            // .then(res=>{
+                                            //     console.log('read:')
+                                            //     console.log(res)
+                                            // })
+                                        })
+                                }
+                                else {
+
+                                }
                             });
                     }}
                     title="getDiscoveredPeripherals"

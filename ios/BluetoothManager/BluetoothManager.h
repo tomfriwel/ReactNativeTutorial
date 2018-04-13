@@ -6,8 +6,9 @@
 //  Copyright © 2018 Facebook. All rights reserved.
 //
 
+#import <React/RCTBridgeModule.h>
 #import <Foundation/Foundation.h>
 
-@interface BluetoothManager : NSObject
+@interface BluetoothManager : NSObject <RCTBridgeModule>
 
 @end

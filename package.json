@@ -8,6 +8,7 @@
     "test": "react-native run-ios --simulator='iPhone (5th generation)'"
   },
   "dependencies": {
+    "buffer": "^5.1.0",
     "react": "16.3.0",
     "react-native": "0.54.4",
     "react-native-ble-manager": "^6.2.9",
