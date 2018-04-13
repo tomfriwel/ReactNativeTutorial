@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Button, NativeModules } from 'react-native';
+import { Text, View, Button, NativeModules, NativeEventEmitter } from 'react-native';
 
 const SERVICE_UUID = 'CDD1'
 const CHARACTERISTIC_UUID = 'CDD2'

@@ -12,9 +12,9 @@
 
 @implementation BluetoothManager
 
--(instancetype)init {
-  
-  return [super init];
+- (NSArray<NSString *> *)supportedEvents
+{
+  return @[@"EventReminder"];
 }
 
 RCT_EXPORT_MODULE();
@@ -33,7 +33,8 @@ RCT_EXPORT_METHOD(log:(NSString *)name number:(nonnull NSNumber *)number)
 
 RCT_EXPORT_METHOD(bindEvent:(NSString *)name callback:(RCTResponseSenderBlock)callback)
 {
-  callback(@[@"success"]);
+//  callback(@[@"success"]);
+  [self sendEventWithName:@"EventReminder" body:@{@"name": name}];
 }
 
 @end
