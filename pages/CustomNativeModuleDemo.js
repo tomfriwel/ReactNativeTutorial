@@ -19,6 +19,15 @@ class HomeScreen extends React.Component {
                     }}
                     title={'log'}
                 ></Button>
+
+                <Button
+                    onPress={() => {
+                        BluetoothManager.bindEvent('onChange', (res)=>{
+                            console.log(res)
+                        })
+                    }}
+                    title={'bindEvent'}
+                ></Button>
             </View>
         );
     }
