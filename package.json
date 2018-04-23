@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "teststart": "react-native-scripts start",
-    "test": "react-native run-ios --simulator='iPhone (5th generation)'"
+    "test": "react-native run-ios --simulator='iPad (5th generation)'"
   },
   "dependencies": {
     "buffer": "^5.1.0",
