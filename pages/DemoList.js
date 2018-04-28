@@ -20,6 +20,7 @@ import WithNavigationDemo from './WithNavigationDemo'
 import LinkingDemo from './LinkingDemo'
 import BluetoothDemo from './BluetoothDemo'
 import CustomNativeModuleDemo from './CustomNativeModuleDemo'
+import AnimationDemo from './AnimationDemo'
 
 class HomeScreen extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -93,6 +94,11 @@ class HomeScreen extends Component {
                 <Button
                     onPress={() => this.props.navigation.navigate('CustomNativeModuleDemo')}
                     title='CustomNativeModuleDemo'
+                ></Button>
+
+                <Button
+                    onPress={() => this.props.navigation.navigate('AnimationDemo')}
+                    title='AnimationDemo'
                 ></Button>
             </View>
         )
@@ -171,6 +177,9 @@ const DemoList = StackNavigator(
         },
         CustomNativeModuleDemo: {
             screen: CustomNativeModuleDemo
+        },
+        AnimationDemo: {
+            screen: AnimationDemo
         }
     },
     {
