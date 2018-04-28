@@ -8,7 +8,7 @@ import { Linking, View, Button, Text, StyleSheet } from 'react-native';
 
 export default class extends Component {
     componentWillMount() {
-        console.log(this)
+        // console.log(this)
     }
     render() {
         let info
