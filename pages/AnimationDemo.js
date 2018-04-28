@@ -10,7 +10,8 @@ import {
     StyleSheet,
     Animated,
     Easing,
-    TouchableWithoutFeedback
+    TouchableWithoutFeedback,
+    FlatList
 } from 'react-native';
 
 //open totest://link/tomfriwel in browser
@@ -52,8 +53,38 @@ export default class extends Component {
     }
 
     render() {
+        let list = [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+        ]
         return (
             <View style={styles.container}>
+                <FlatList
+                    style={styles.list}
+                    data={list}
+                    renderItem={(item) => {
+                        return (
+                            <Text></Text>
+                        )
+                    }}
+                />
                 <Button
                     onPress={() => {
 
@@ -126,5 +157,8 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         backgroundColor: '#000'
+    },
+    list: {
+        backgroundColor:'red'
     }
 })
