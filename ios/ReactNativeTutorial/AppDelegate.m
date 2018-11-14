@@ -11,28 +11,14 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
-#import <React/RCTLinkingManager.h>
-
-#if RCT_DEV
-#import <React/RCTDevLoadingView.h>
-#endif
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  
   NSURL *jsCodeLocation;
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
-  
-  
-  RCTBridge *bridge = [[RCTBridge alloc] initWithBundleURL:jsCodeLocation
-                                            moduleProvider:nil
-                                             launchOptions:launchOptions];
-#if RCT_DEV
-  [bridge moduleForClass:[RCTDevLoadingView class]];
-#endif
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"ReactNativeTutorial"
@@ -46,14 +32,6 @@
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   return YES;
-}
-
-// Add this above the `@end`:
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-  return [RCTLinkingManager application:application openURL:url
-                      sourceApplication:sourceApplication annotation:annotation];
 }
 
 @end

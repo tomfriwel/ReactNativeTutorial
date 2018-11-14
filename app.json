@@ -1,7 +1,4 @@
 {
   "name": "ReactNativeTutorial",
-  "displayName": "ReactNativeTutorial",
-  "expo": {
-    "sdkVersion": "26.0.0"
-  }
+  "displayName": "ReactNativeTutorial"
 }
